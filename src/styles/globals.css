@@ -3,18 +3,20 @@
 @theme {
   --color-primary: #3b82f6;
   --color-dark: #0a0a0a;
-  --color-dark-lighter: #171717;
+  --color-dark-lighter: #111111;
   --color-text-main: #f3f4f6;
   --color-text-muted: #9ca3af;
   
   --font-sans: 'Inter', 'SF Pro Display', 'system-ui', sans-serif;
   
-  --shadow-premium: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --shadow-premium: 0 20px 50px -12px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.2);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    @apply antialiased;
   }
   
   body {
@@ -22,11 +24,12 @@
     color: var(--color-text-main);
     font-family: var(--font-sans);
     overflow-x: hidden;
+    @apply leading-relaxed;
   }
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
   
   ::-webkit-scrollbar-track {
@@ -34,7 +37,7 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    background: #333;
+    background: #222;
     border-radius: 10px;
   }
   
@@ -45,10 +48,18 @@
 
 @layer components {
   .section-container {
-    @apply max-w-7xl mx-auto px-6 py-20 md:py-32;
+    @apply max-w-7xl mx-auto px-6 py-24 md:py-32 lg:py-40;
   }
 
   .premium-card {
-    @apply bg-dark-lighter border border-white/5 rounded-2xl p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-premium;
+    @apply bg-dark-lighter/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 transition-all duration-500 hover:border-primary/20 hover:shadow-premium hover:shadow-primary/5;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent;
+  }
+
+  .glass-panel {
+    @apply bg-dark-lighter/40 backdrop-blur-xl border border-white/5;
   }
 }

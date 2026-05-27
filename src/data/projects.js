@@ -1,34 +1,35 @@
 export const projects = [
   {
     title: "Portfolio Website",
-    description: "A premium, HR-friendly developer portfolio showcasing projects and skills with a modern professional aesthetic.",
+    description: "A premium, HR-friendly developer portfolio showcasing projects and skills with a modern professional aesthetic and seamless animations.",
     tech: ["React", "Tailwind CSS", "Framer Motion"],
-    image: "/images/portfolio.jpg", // Placeholder path
+    image: "/images/projects/portfolio.png",
     github: "https://github.com/selvameenasubramanian27-art",
     demo: "#",
   },
   {
-    title: "Organic Egg Farm Website",
-    description: "A comprehensive website for an organic egg farm, focusing on product presentation and customer engagement.",
+    title: "Organic Egg Farm",
+    description: "A professional landing page for an organic farm business, featuring product displays, mission statement, and responsive design.",
     tech: ["HTML", "CSS", "JavaScript"],
-    image: "/images/farm.jpg",
+    image: "/images/projects/farm.png",
     github: "https://github.com/selvameenasubramanian27-art",
     demo: "#",
   },
   {
-    title: "Quiz Website",
-    description: "An interactive quiz platform featuring multiple categories, real-time scoring, and responsive design.",
+    title: "Quiz Platform",
+    description: "Interactive web-based quiz application with score tracking and dynamic feedback for users.",
     tech: ["JavaScript", "HTML", "CSS"],
-    image: "/images/quiz.jpg",
+    image: "/images/projects/quiz.png",
     github: "https://github.com/selvameenasubramanian27-art",
     demo: "#",
   },
   {
-    title: "Calculator Website",
-    description: "A sleek and functional calculator application with support for complex arithmetic operations.",
+    title: "Modern Calculator",
+    description: "A functional and sleek calculator application capable of handling basic arithmetic with an elegant dark theme UI.",
     tech: ["JavaScript", "CSS", "HTML"],
-    image: "/images/calculator.jpg",
+    image: "/images/projects/calculator.png",
     github: "https://github.com/selvameenasubramanian27-art",
     demo: "#",
   },
 ];
+

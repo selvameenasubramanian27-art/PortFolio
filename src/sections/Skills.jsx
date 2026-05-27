@@ -5,11 +5,14 @@ import { skills } from '../data/skills';
 
 const Skills = () => {
   return (
-    <section id="skills" className="section-container bg-dark/30">
-      <SectionTitle title="Technical Skills" subtitle="Toolbox & Expertise" />
+    <section id="skills" className="section-container relative overflow-hidden">
+      {/* Background radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[120px] rounded-full -z-10" />
       
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {skills.map((skillGroup, index) => (
+      <SectionTitle title="Technical Expertise" subtitle="Realistic Skill Proficiency" />
+      
+      <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {skills.map((skillGroup) => (
           <SkillCard 
             key={skillGroup.category} 
             category={skillGroup.category} 
@@ -22,3 +25,4 @@ const Skills = () => {
 };
 
 export default Skills;
+

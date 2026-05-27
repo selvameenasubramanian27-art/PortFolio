@@ -6,12 +6,20 @@ import * as SiIcons from 'react-icons/si';
 
 const SkillCard = ({ category, items }) => {
   return (
-    <div className="premium-card">
-      <h3 className="text-lg font-bold mb-6 text-primary flex items-center gap-2">
-        <LucideIcons.LayoutGrid size={18} />
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="premium-card h-full"
+    >
+      <h3 className="text-xl font-bold mb-8 text-white flex items-center gap-3">
+        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+          <LucideIcons.Layers size={20} />
+        </div>
         {category}
       </h3>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+      
+      <div className="space-y-6">
         {items.map((skill, index) => {
           // Determine which icon set to use
           let Icon = LucideIcons[skill.icon];
@@ -20,22 +28,34 @@ const SkillCard = ({ category, items }) => {
           if (!Icon) Icon = LucideIcons.Code2; // Fallback
 
           return (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.05 }}
-              whileHover={{ y: -5 }}
-              className="flex flex-col items-center gap-2 p-3 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 transition-colors"
-            >
-              <Icon size={20} className="text-text-muted" />
-              <span className="text-xs font-medium">{skill.name}</span>
-            </motion.div>
+            <div key={skill.name} className="space-y-2">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Icon size={16} className="text-primary/70" />
+                  <span className="text-sm font-medium text-text-main">{skill.name}</span>
+                </div>
+                <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">{skill.level}%</span>
+              </div>
+              
+              <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${skill.level}%` }}
+                  transition={{ duration: 1, delay: index * 0.1, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                  className="h-full bg-gradient-to-r from-primary/40 to-primary rounded-full relative"
+                >
+                  {/* Pulse effect on the bar tip */}
+                  <div className="absolute right-0 top-0 h-full w-2 bg-white/30 blur-[2px]" />
+                </motion.div>
+              </div>
+            </div>
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export default SkillCard;
+

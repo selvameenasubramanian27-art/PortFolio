@@ -8,7 +8,6 @@ import Skills from './sections/Skills';
 import Experience from './sections/Experience';
 import Projects from './sections/Projects';
 import Education from './sections/Education';
-import Achievements from './sections/Achievements';
 import Certificates from './sections/Certificates';
 import Contact from './sections/Contact';
 
@@ -24,9 +23,9 @@ function App() {
       <Experience />
       <Projects />
       <Education />
-      <Achievements />
       <Certificates />
       <Contact />
+
       
       <Footer />
     </main>

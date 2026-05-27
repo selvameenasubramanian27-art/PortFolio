@@ -1,9 +1,12 @@
 export const experience = [
   {
-    role: "Intern",
+    role: "Software Developer Intern",
     company: "Incrix",
-    duration: "15 Days",
-    description: "Gained hands-on experience in software development processes and improved technical skills during a focused internship program.",
-    skills: ["Software Development", "Team Collaboration"],
+    duration: "June 2024 (15 Days)",
+    location: "Remote / Hybrid",
+    description: "Completed an intensive internship program focusing on software development lifecycles. Gained hands-on experience in building fundamental web structures and understanding industry-standard coding practices.",
+    skills: ["Web Development", "Software Architecture", "Problem Solving"],
+    certificate: "/certificates/incrix-certificate.pdf"
   },
 ];
+
