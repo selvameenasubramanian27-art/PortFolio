@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/common/SectionTitle';
 import Button from '../components/common/Button';
-import { fadeIn, staggerContainer } from '../utils/animations';
-import { Mail, Send, CheckCircle, Copy, MessageSquare } from 'lucide-react';
+import { fadeIn } from '../utils/animations';
+import { Mail, Send, CheckCircle, Copy } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa6';
 
 const Contact = () => {
@@ -29,7 +29,9 @@ const Contact = () => {
       const email = formData.get('email');
       const message = formData.get('message');
       
-      const mailtoLink = `mailto:selvameenasubramanian27@gmail.com?subject=Portfolio Inquiry from ${name}&body=From: ${name} (${email})%0D%0A%0D%0A${message}`;
+      const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+      const body = encodeURIComponent(`From: ${name} (${email})\n\n${message}`);
+      const mailtoLink = `mailto:selvameenasubramanian27@gmail.com?subject=${subject}&body=${body}`;
       
       setTimeout(() => {
          window.location.href = mailtoLink;
@@ -71,7 +73,7 @@ const Contact = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Email</span>
-                  <span className="text-sm font-medium text-white truncate max-w-[180px] sm:max-w-none">selvameena... @gmail.com</span>
+                  <span className="text-sm font-medium text-white break-all">selvameenasubramanian27@gmail.com</span>
                 </div>
               </div>
               <button 
@@ -131,7 +133,7 @@ const Contact = () => {
                   type="text" 
                   id="name"
                   placeholder=" "
-                  className="peer w-full bg-transparent border-b border-white/10 py-3 text-white focus:border-primary outline-none transition-all placeholder-transparent"
+                className="peer w-full bg-transparent border-b border-white/10 py-3 text-white focus:border-primary outline-none transition-all placeholder-transparent"
                 />
                 <label 
                   htmlFor="name" 
@@ -203,4 +205,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

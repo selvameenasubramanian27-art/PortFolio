@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/common/SectionTitle';
 import { experience } from '../data/experience';
@@ -68,17 +67,10 @@ const Experience = () => {
 
                 {exp.certificate && (
                   <div className="pt-4 border-t border-white/5 mt-2">
-                    <a 
-                      href={exp.certificate} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex"
-                    >
-                      <Button variant="outline" className="px-6 py-2.5 text-xs">
-                        <FileCheck size={16} /> View Internship Certificate
-                        <ExternalLink size={12} className="opacity-50" />
-                      </Button>
-                    </a>
+                    <Button href={exp.certificate} target="_blank" rel="noopener noreferrer" variant="outline" className="px-6 py-2.5 text-xs">
+                      <FileCheck size={16} /> View Internship Certificate
+                      <ExternalLink size={12} className="opacity-50" />
+                    </Button>
                   </div>
                 )}
               </div>

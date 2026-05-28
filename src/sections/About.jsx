@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/common/SectionTitle';
 import { fadeIn, staggerContainer } from '../utils/animations';
@@ -28,19 +27,19 @@ const About = () => {
     <section id="about" className="section-container">
       <SectionTitle title="About Me" subtitle="Professional Journey" />
       
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-16 items-center">
         <motion.div
           variants={fadeIn('right', 0.2)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="relative group mx-auto lg:mx-0 max-w-sm lg:max-w-none"
+          className="relative group mx-auto lg:mx-0 w-full max-w-xs sm:max-w-sm"
         >
           <div className="relative">
             {/* Decorative background element */}
             <div className="absolute -inset-4 bg-primary/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             
-            <div className="aspect-[4/5] bg-dark-lighter border border-white/5 rounded-3xl overflow-hidden shadow-2xl relative z-10">
+            <div className="aspect-[4/5] bg-dark-lighter border border-white/10 rounded-2xl overflow-hidden shadow-2xl relative z-10">
               <img 
                 src={profileImg} 
                 alt="Profile" 
@@ -55,7 +54,7 @@ const About = () => {
           <motion.div 
             animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="absolute -bottom-6 -right-6 lg:right-4 bg-primary p-4 rounded-2xl shadow-xl z-20 hidden md:block"
+            className="absolute -bottom-5 -right-5 bg-primary p-4 rounded-2xl shadow-xl z-20 hidden md:block"
           >
             <User className="text-white" size={32} />
           </motion.div>
@@ -76,7 +75,7 @@ const About = () => {
               I am a final-year Computer Science and Engineering student at P.S.R Engineering College, dedicated to the art of clean code and efficient software delivery. My journey is fueled by a curiosity for how systems work and a passion for creating interfaces that feel intuitive and alive.
             </p>
             <p className="text-text-muted leading-relaxed text-base md:text-lg">
-              Beyond just writing code, I focus on the user's experience—ensuring every interaction is meaningful and every solution is scalable. I am currently seeking opportunities to apply my technical foundation in real-world environments.
+              Beyond just writing code, I focus on the user's experience, ensuring every interaction is meaningful and every solution is scalable. I am currently seeking opportunities to apply my technical foundation in real-world environments.
             </p>
           </motion.div>
           
@@ -85,7 +84,7 @@ const About = () => {
             className="grid grid-cols-1 sm:grid-cols-3 gap-4"
           >
             {highlights.map((item, index) => (
-              <div key={index} className="bg-white/5 border border-white/5 p-5 rounded-2xl flex flex-col gap-3 hover:bg-white/10 hover:border-primary/20 transition-all group">
+              <div key={index} className="bg-white/5 border border-white/10 p-5 rounded-xl flex flex-col gap-3 hover:bg-white/10 hover:border-primary/30 transition-all group">
                 <div className="text-primary group-hover:scale-110 transition-transform duration-300">
                   {item.icon}
                 </div>
@@ -103,4 +102,3 @@ const About = () => {
 };
 
 export default About;
-

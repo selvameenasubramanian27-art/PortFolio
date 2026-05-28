@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Code, ArrowUpRight } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa6';
@@ -6,6 +5,9 @@ import { FaGithub } from 'react-icons/fa6';
 import { fadeIn } from '../../utils/animations';
 
 const ProjectCard = ({ title, description, tech, image, github, demo, index }) => {
+  const hasDemo = Boolean(demo && demo !== '#');
+  const hasImage = Boolean(image);
+
   return (
     <motion.div
       variants={fadeIn('up', index * 0.1)}
@@ -15,17 +17,31 @@ const ProjectCard = ({ title, description, tech, image, github, demo, index }) =
       className="premium-card group flex flex-col h-full overflow-hidden !p-0"
     >
       {/* Project Image Container */}
-      <div className="relative h-56 overflow-hidden">
-        <div className="absolute inset-0 bg-primary/20 mix-blend-overlay group-hover:bg-transparent transition-all duration-500 z-10" />
-        <img 
-          src={image} 
-          alt={title}
-          onError={(e) => {
-            e.target.src = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800';
-            e.target.className = 'w-full h-full object-cover opacity-20 contrast-125';
-          }}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
+      <div className="relative h-56 overflow-hidden bg-gradient-to-br from-dark-lighter via-dark to-primary/10">
+        <div className="absolute inset-0 bg-primary/10 mix-blend-overlay group-hover:bg-transparent transition-all duration-500 z-10" />
+        {hasImage ? (
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+        ) : (
+          <div className="h-full w-full p-6 flex flex-col justify-between">
+            <div className="flex gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-yellow-300/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-emerald-300/70" />
+            </div>
+            <div className="space-y-3">
+              <div className="h-3 w-2/3 rounded-full bg-white/20" />
+              <div className="h-3 w-full rounded-full bg-white/10" />
+              <div className="h-3 w-4/5 rounded-full bg-white/10" />
+            </div>
+            <div className="text-xs font-bold uppercase tracking-[0.24em] text-primary/80">
+              Project Preview
+            </div>
+          </div>
+        )}
         
         {/* Hover Overlay */}
         <div className="absolute inset-0 bg-dark/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 z-20 flex items-center justify-center gap-4">
@@ -39,7 +55,7 @@ const ProjectCard = ({ title, description, tech, image, github, demo, index }) =
             <FaGithub size={22} />
           </a>
 
-          {demo !== '#' && (
+          {hasDemo && (
             <a 
               href={demo} 
               target="_blank" 
@@ -74,10 +90,19 @@ const ProjectCard = ({ title, description, tech, image, github, demo, index }) =
             </span>
           ))}
         </div>
+        <div className="flex flex-wrap gap-3 pt-1">
+          <a href={github} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-white/80 hover:text-primary transition-colors inline-flex items-center gap-2">
+            <FaGithub size={14} /> GitHub
+          </a>
+          {hasDemo && (
+            <a href={demo} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-white/80 hover:text-primary transition-colors inline-flex items-center gap-2">
+              <ExternalLink size={14} /> Live Demo
+            </a>
+          )}
+        </div>
       </div>
     </motion.div>
   );
 };
 
 export default ProjectCard;
-

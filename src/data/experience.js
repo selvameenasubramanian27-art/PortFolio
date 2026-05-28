@@ -6,7 +6,6 @@ export const experience = [
     location: "Remote / Hybrid",
     description: "Completed an intensive internship program focusing on software development lifecycles. Gained hands-on experience in building fundamental web structures and understanding industry-standard coding practices.",
     skills: ["Web Development", "Software Architecture", "Problem Solving"],
-    certificate: "/certificates/incrix-certificate.pdf"
+    certificate: "mailto:selvameenasubramanian27@gmail.com?subject=Internship%20Certificate%20Request"
   },
 ];
-

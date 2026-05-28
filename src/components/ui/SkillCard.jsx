@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import * as LucideIcons from 'lucide-react';
 import * as FaIcons from 'react-icons/fa6';
@@ -10,7 +9,7 @@ const SkillCard = ({ category, items }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="premium-card h-full"
+      className="premium-card h-full flex flex-col"
     >
       <h3 className="text-xl font-bold mb-8 text-white flex items-center gap-3">
         <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
@@ -19,7 +18,7 @@ const SkillCard = ({ category, items }) => {
         {category}
       </h3>
       
-      <div className="space-y-6">
+      <div className="space-y-6 flex-1">
         {items.map((skill, index) => {
           // Determine which icon set to use
           let Icon = LucideIcons[skill.icon];
@@ -37,7 +36,7 @@ const SkillCard = ({ category, items }) => {
                 <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">{skill.level}%</span>
               </div>
               
-              <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+              <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${skill.level}%` }}
@@ -58,4 +57,3 @@ const SkillCard = ({ category, items }) => {
 };
 
 export default SkillCard;
-

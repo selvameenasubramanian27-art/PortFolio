@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
@@ -25,7 +25,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-dark/70 backdrop-blur-xl py-3 border-b border-white/5 shadow-2xl' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-dark/80 backdrop-blur-xl py-3 border-b border-white/10 shadow-2xl' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
@@ -88,7 +88,7 @@ const Navbar = () => {
                   offset={-70}
                   duration={800}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-3 text-lg font-medium text-text-muted hover:text-primary transition-all flex items-center justify-between group"
+                  className="px-4 py-3 text-lg font-medium text-text-muted hover:text-primary transition-all flex items-center justify-between group cursor-pointer"
                   activeClass="!text-primary"
                 >
                   {link.name}
@@ -104,4 +104,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

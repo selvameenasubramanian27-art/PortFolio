@@ -1,4 +1,3 @@
-import React from 'react';
 import SectionTitle from '../components/common/SectionTitle';
 import SkillCard from '../components/ui/SkillCard';
 import { skills } from '../data/skills';
@@ -25,4 +24,3 @@ const Skills = () => {
 };
 
 export default Skills;
-

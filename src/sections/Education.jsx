@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/common/SectionTitle';
 import { education } from '../data/education';
@@ -11,7 +10,7 @@ const Education = () => {
       <SectionTitle title="Education" subtitle="Academic Background" />
       
       <div className="max-w-4xl mx-auto">
-        {education.map((edu, index) => (
+        {education.map((edu) => (
           <motion.div
             key={edu.college}
             variants={fadeIn('up', 0.2)}

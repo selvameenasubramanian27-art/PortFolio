@@ -1,8 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/common/SectionTitle';
 import { certificates } from '../data/certificates';
-import { fadeIn, staggerContainer } from '../utils/animations';
+import { fadeIn } from '../utils/animations';
 import { Award, ExternalLink, ShieldCheck } from 'lucide-react';
 
 const Certificates = () => {
@@ -21,7 +20,7 @@ const Certificates = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="premium-card group border-white/5 hover:border-primary/20 flex flex-col md:flex-row gap-6 items-center"
+            className="premium-card group border-white/5 hover:border-primary/20 flex flex-col md:flex-row gap-6 items-center h-full"
           >
             {/* Preview Area */}
             <div className="w-full md:w-32 h-32 bg-dark rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden group-hover:border-primary/30 transition-all duration-500">
@@ -63,4 +62,3 @@ const Certificates = () => {
 };
 
 export default Certificates;
-

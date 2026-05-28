@@ -1,7 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, ChevronDown, Rocket, ExternalLink } from 'lucide-react';
-import { FaGithub } from 'react-icons/fa6';
+import { FileText, ChevronDown, Rocket } from 'lucide-react';
 import Button from '../components/common/Button';
 import { Link } from 'react-scroll';
 import { fadeIn, staggerContainer } from '../utils/animations';
@@ -9,6 +7,13 @@ import profileImg from '../assets/images/profile.png';
 
 const Hero = () => {
   const techStack = ['React', 'JavaScript', 'Tailwind CSS', 'Java', 'GitHub'];
+  const scrollToProjects = () => {
+    const projects = document.getElementById('projects');
+    if (!projects) return;
+
+    const top = projects.getBoundingClientRect().top + window.scrollY - 70;
+    window.scrollTo({ top, behavior: 'smooth' });
+  };
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 pt-20">
@@ -16,16 +21,16 @@ const Hero = () => {
       <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary/20 blur-[120px] rounded-full -z-10 opacity-50" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-blue-900/10 blur-[150px] rounded-full -z-10 opacity-30" />
       
-      <div className="section-container grid md:grid-cols-2 gap-12 items-center">
+      <div className="section-container grid md:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
         {/* Left Side: Intro Content */}
         <motion.div
           variants={staggerContainer(0.2, 0.1)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="order-2 md:order-1"
+          className="order-2 md:order-1 text-center md:text-left"
         >
-          <motion.div variants={fadeIn('up', 0.1)} className="flex items-center gap-2 mb-6">
+          <motion.div variants={fadeIn('up', 0.1)} className="flex items-center justify-center md:justify-start gap-2 mb-6">
             <span className="w-8 h-[1px] bg-primary"></span>
             <span className="text-primary font-medium tracking-[0.3em] uppercase text-xs md:text-sm">
               Welcome to my professional space
@@ -48,7 +53,7 @@ const Hero = () => {
           
           <motion.p
             variants={fadeIn('up', 0.4)}
-            className="text-base md:text-lg text-text-muted mb-8 max-w-xl leading-relaxed"
+            className="text-base md:text-lg text-text-muted mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed"
           >
             I specialize in crafting high-performance web applications with a focus on clean code, scalability, and exceptional user experiences.
           </motion.p>
@@ -56,7 +61,7 @@ const Hero = () => {
           {/* Tech Stack Tags */}
           <motion.div 
             variants={fadeIn('up', 0.5)}
-            className="flex flex-wrap gap-3 mb-10"
+            className="flex flex-wrap justify-center md:justify-start gap-3 mb-10"
           >
             {techStack.map((tech) => (
               <span 
@@ -70,23 +75,27 @@ const Hero = () => {
           
           <motion.div
             variants={fadeIn('up', 0.6)}
-            className="flex flex-wrap items-center gap-5"
+            className="flex flex-wrap items-center justify-center md:justify-start gap-4"
           >
-            <Link to="projects" smooth={true} duration={800} offset={-70}>
-              <Button variant="primary" className="px-8 py-4 group">
-                View My Work 
-                <Rocket size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </Button>
-            </Link>
+            <Button
+              onClick={scrollToProjects}
+              variant="primary"
+              className="px-8 py-4 group shadow-glow"
+            >
+              View My Work
+              <Rocket
+                size={18}
+                className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+              />
+            </Button>
             
             <Button 
               href="/resume.pdf" 
               variant="secondary" 
               className="px-8 py-4 group"
-              // Adding download attribute directly as Button passes it to Component
               download="Selvameena_Resume.pdf"
             >
-              <FileText size={18} /> Resume
+              <FileText size={18} /> Download Resume
             </Button>
           </motion.div>
         </motion.div>
@@ -103,7 +112,7 @@ const Hero = () => {
             {/* Image Glow/Backdrop */}
             <div className="absolute -inset-4 bg-primary/20 blur-2xl rounded-full opacity-50 group-hover:opacity-75 transition-opacity duration-500 -z-10" />
             
-            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden border-2 border-white/10 shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+            <div className="relative w-60 h-60 md:w-80 md:h-80 lg:w-[22rem] lg:h-[22rem] rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
               <img 
                 src={profileImg} 
                 alt="Selvameena Subramanian" 
@@ -136,4 +145,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
