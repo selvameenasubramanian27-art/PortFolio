@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import SectionTitle from '../components/common/SectionTitle';
 import { experience } from '../data/experience';
 import { fadeIn, staggerContainer } from '../utils/animations';
-import { Briefcase, MapPin, Calendar, FileCheck, ExternalLink } from 'lucide-react';
+import { Briefcase, MapPin, Calendar, Download, ExternalLink, FileCheck } from 'lucide-react';
 import Button from '../components/common/Button';
 
 const Experience = () => {
@@ -67,10 +67,15 @@ const Experience = () => {
 
                 {exp.certificate && (
                   <div className="pt-4 border-t border-white/5 mt-2">
-                    <Button href={exp.certificate} target="_blank" rel="noopener noreferrer" variant="outline" className="px-6 py-2.5 text-xs">
-                      <FileCheck size={16} /> View Internship Certificate
-                      <ExternalLink size={12} className="opacity-50" />
-                    </Button>
+                    <div className="flex flex-wrap gap-3">
+                      <Button href={exp.certificate} target="_blank" rel="noopener noreferrer" variant="outline" className="px-5 py-2.5 text-xs">
+                        <FileCheck size={16} /> View Internship Certificate
+                        <ExternalLink size={12} className="opacity-50" />
+                      </Button>
+                      <Button href={exp.certificate} download variant="secondary" className="px-5 py-2.5 text-xs">
+                        <Download size={16} /> Download Certificate
+                      </Button>
+                    </div>
                   </div>
                 )}
               </div>

@@ -72,7 +72,7 @@ const About = () => {
               Empowering Ideas Through <span className="text-primary italic">Modern Technology</span>
             </h3>
             <p className="text-text-muted leading-relaxed text-base md:text-lg mb-6">
-              I am a final-year Computer Science and Engineering student at P.S.R Engineering College, dedicated to the art of clean code and efficient software delivery. My journey is fueled by a curiosity for how systems work and a passion for creating interfaces that feel intuitive and alive.
+              I am a Computer Science and Engineering student at P.S.R Engineering College, dedicated to the art of clean code and efficient software delivery. My journey is fueled by a curiosity for how systems work and a passion for creating interfaces that feel intuitive and alive.
             </p>
             <p className="text-text-muted leading-relaxed text-base md:text-lg">
               Beyond just writing code, I focus on the user's experience, ensuring every interaction is meaningful and every solution is scalable. I am currently seeking opportunities to apply my technical foundation in real-world environments.
